@@ -49,7 +49,6 @@ class Inventory {
         products = new ArrayList<>();
     }
 
-    // Modified addProduct to limit the number of products
     public String addProduct(String name, double price, int quantity) {
         if (products.size() >= 3) {
             return "No more space available.";
@@ -89,16 +88,16 @@ public class InventoryManagement {
         frame.setSize(600, 500);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Main panel with FlowLayout
+        // main panel 
         JPanel mainPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
 
         Font font = new Font("Arial", Font.PLAIN, 18);
 
-        // Input panels using FlowLayout to center components
+        // input panels
         JPanel namePanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
         JLabel nameLabel = new JLabel("Name:");
         nameLabel.setFont(font);
-        JTextField nameField = new JTextField(15);  // Setting width to 15 characters
+        JTextField nameField = new JTextField(15);  //Setting width to 15 characters
         nameField.setFont(font);
         namePanel.add(nameLabel);
         namePanel.add(nameField);
@@ -119,7 +118,7 @@ public class InventoryManagement {
         quantityPanel.add(quantityLabel);
         quantityPanel.add(quantityField);
 
-        // Buttons panel using FlowLayout to center buttons
+        // buttons panel
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
         JButton addButton = new JButton("Add Product");
         addButton.setFont(font);
@@ -131,7 +130,7 @@ public class InventoryManagement {
         buttonPanel.add(updateButton);
         buttonPanel.add(displayButton);
 
-        // Display area
+        // display area
         JTextArea displayArea = new JTextArea(10, 30);
         displayArea.setEditable(false);
         displayArea.setFont(font);
