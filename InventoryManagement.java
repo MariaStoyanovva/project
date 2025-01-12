@@ -49,7 +49,11 @@ class Inventory {
         products = new ArrayList<>();
     }
 
+    // Modified addProduct to limit the number of products
     public String addProduct(String name, double price, int quantity) {
+        if (products.size() >= 3) {
+            return "No more space available.";
+        }
         products.add(new Product(name, price, quantity));
         return "Product ADDED successfully!";
     }
@@ -85,38 +89,38 @@ public class InventoryManagement {
         frame.setSize(600, 500);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Main panel with GridLayout
-        JPanel mainPanel = new JPanel(new GridLayout(5, 1, 10, 10));
+        // Main panel with FlowLayout
+        JPanel mainPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
 
         Font font = new Font("Arial", Font.PLAIN, 18);
 
-        // Input panels
-        JPanel namePanel = new JPanel(new GridLayout(1, 2, 10, 0));
+        // Input panels using FlowLayout to center components
+        JPanel namePanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
         JLabel nameLabel = new JLabel("Name:");
         nameLabel.setFont(font);
-        JTextField nameField = new JTextField();
+        JTextField nameField = new JTextField(15);  // Setting width to 15 characters
         nameField.setFont(font);
         namePanel.add(nameLabel);
         namePanel.add(nameField);
 
-        JPanel pricePanel = new JPanel(new GridLayout(1, 2, 10, 0));
+        JPanel pricePanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
         JLabel priceLabel = new JLabel("Price:");
         priceLabel.setFont(font);
-        JTextField priceField = new JTextField();
+        JTextField priceField = new JTextField(15);
         priceField.setFont(font);
         pricePanel.add(priceLabel);
         pricePanel.add(priceField);
 
-        JPanel quantityPanel = new JPanel(new GridLayout(1, 2, 10, 0));
+        JPanel quantityPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
         JLabel quantityLabel = new JLabel("Quantity:");
         quantityLabel.setFont(font);
-        JTextField quantityField = new JTextField();
+        JTextField quantityField = new JTextField(15);
         quantityField.setFont(font);
         quantityPanel.add(quantityLabel);
         quantityPanel.add(quantityField);
 
-        // Buttons panel
-        JPanel buttonPanel = new JPanel(new GridLayout(1, 3, 10, 0));
+        // Buttons panel using FlowLayout to center buttons
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
         JButton addButton = new JButton("Add Product");
         addButton.setFont(font);
         JButton updateButton = new JButton("Update Product");
